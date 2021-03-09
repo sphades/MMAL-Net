@@ -94,7 +94,7 @@ class MainNet(nn.Module):
         assert channel_size == 2048
 
         # raw branch
-        raw_logits = self.rawcls_net(embedding)
+        raw_logits = self.rawcls_net(embedding).to(DEVICE)
 
         #SCDA
         coordinates = torch.tensor(AOLM(fm.detach(), conv5_b.detach()))
